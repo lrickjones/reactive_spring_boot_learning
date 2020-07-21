@@ -24,13 +24,23 @@ public class Item {
         this.price = price;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     private String name;
+    private String description;
     private double price;
 
     private Item() {}
 
-    Item(String name, double price) {
+    Item(String name, String description, double price) {
         this.name = name;
+        this.description = description;
         this.price = price;
     }
 
