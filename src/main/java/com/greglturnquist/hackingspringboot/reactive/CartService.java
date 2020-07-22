@@ -3,7 +3,7 @@ package com.greglturnquist.hackingspringboot.reactive;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-@Service
+@Service    
 public class CartService {
     private final ItemRepository itemRepository;
     private final CartRepository cartRepository;
@@ -30,24 +30,4 @@ public class CartService {
                             .map(cartItem -> cart)))
                 .flatMap(this.cartRepository::save);
     }
-    /*
-            return this.cartRepository.findById("My Cart")
-                .defaultIfEmpty(new Cart("My Cart"))
-                    .flatMap(cart -> cart.getCartItems().stream()
-                    .filter(cartItem -> cartItem.getItem().getId().equals(id))
-                    .findAny()
-                    .map(cartItem -> {
-                        cartItem.increment();
-                        return Mono.just(cart);
-                    })
-                .orElseGet(() -> {
-                    return this.itemRepository.findById(id)
-                            .map(item -> new CartItem(item))
-                            .map(cartItem -> {
-                                cart.getCartItems().add(cartItem);
-                                return cart;
-                            });
-                }))
-                .flatMap(cart -> this.cartRepository.save(cart)).thenReturn("redirect:/");
-     */
 }

@@ -46,4 +46,8 @@ public class CartItem {
     public int hashCode() {
         return Objects.hash(item);
     }
+
+    public void decrement() {
+        if (quantity > 0) quantity--;
+    }
 }

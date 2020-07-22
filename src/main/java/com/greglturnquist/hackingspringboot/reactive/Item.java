@@ -44,6 +44,11 @@ public class Item {
         this.price = price;
     }
 
+    Item(String id, String name, String description, double price) {
+        this(name, description, price);
+        this.id = id;
+    }
+
     public String getId() {
         return id;
     }
@@ -54,16 +59,31 @@ public class Item {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Item item = (Item) o;
         return Double.compare(item.price, price) == 0 &&
-                id.equals(item.id) &&
-                Objects.equals(name, item.name);
+                Objects.equals(id, item.id) &&
+                Objects.equals(name, item.name) &&
+                Objects.equals(description, item.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, price);
+        return Objects.hash(id, name, description, price);
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                '}';
     }
 }
