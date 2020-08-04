@@ -4,5 +4,19 @@ when you create a web service, developers want to see ho to use it. Thanks to Sp
 the interactions needed via test cases that in turn generate readable documentation. A match made in heaven,
 or at least, in your IDE.
 
+:snippets: ../../../target/generated-snippets
+
 By running the following request:
+
+include::{snippets}/findAll/curl-request.adoc[]
+
+...the 'ApiItemController' will yield the following response:
+
+include::{snippets}/findAll/response-body.adoc[]
+
+Fan of HTTPie? You can issue the following command:
+
+include::{snippets}/findAll/httpie-request.adoc[]
+
+...and get the same response. Like Chuck-A-Rama, the choice is yours
 
